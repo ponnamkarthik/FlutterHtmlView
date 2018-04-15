@@ -16,6 +16,15 @@ class HtmlParser {
 
     dom.Element docBody = document.body;
 
+    List<dom.Element> styleElements =  document.getElementsByTagName("style");
+    List<dom.Element> scriptElements =  document.getElementsByTagName("script");
+    for(int i = 0; i < styleElements.length; i++) {
+      document.getElementsByTagName("style")[i].remove();
+    }
+    for(int i = 0; i < scriptElements.length; i++) {
+      document.getElementsByTagName("script")[i].remove();
+    }
+
     List<dom.Element> docBodyChildren = docBody.children;
 
     docBodyChildren.forEach((e) {

@@ -1,18 +1,13 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-
-import 'package:flutter/services.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
 
-  // =================================================================================================================
 
   HtmlText({
     this.data
   });
 
-  // =================================================================================================================
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +25,6 @@ class HtmlText extends StatelessWidget {
     );
   }
 
-  // =================================================================================================================
 
   TextSpan _stackToTextSpan(List nodes, BuildContext context) {
     List<TextSpan> children = <TextSpan>[];
@@ -46,7 +40,6 @@ class HtmlText extends StatelessWidget {
     );
   }
 
-  // =================================================================================================================
 
   TextSpan _textSpan(Map node) {
     TextSpan span = new TextSpan(text: node['text'], style: node['style']);
@@ -54,9 +47,6 @@ class HtmlText extends StatelessWidget {
     return span;
   }
 }
-
-
-// =====================================================================================================================
 
 class HtmlParser {
   // Regular Expressions for parsing tags and attributes
@@ -88,7 +78,6 @@ class HtmlParser {
 
   Map<String, dynamic> _tag;
 
-  // =================================================================================================================
 
   HtmlParser() {
     this._startTag = new RegExp(r'^<([-A-Za-z0-9_]+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")' + "|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>");
@@ -98,7 +87,6 @@ class HtmlParser {
     this._color    = new RegExp(r'^#([a-fA-F0-9]{6})$');
   }
 
-  // =================================================================================================================
 
   List parse(String html) {
     String last = html;
@@ -192,7 +180,6 @@ class HtmlParser {
     return result;
   }
 
-  // =================================================================================================================
 
   void _parseStartTag(String tag, String tagName, String rest, int unary) {
     tagName = tagName.toLowerCase();
@@ -244,8 +231,6 @@ class HtmlParser {
     this._appendTag(tagName, attrs);
   }
 
-  // =================================================================================================================
-
   void _parseEndTag([String tagName]) {
     int pos;
 
@@ -268,8 +253,6 @@ class HtmlParser {
     }
   }
 
-  // =================================================================================================================
-
   TextStyle _parseStyle(String tag, Map attrs) {
     Iterable<Match> matches;
     String style = attrs['style'];
@@ -281,7 +264,7 @@ class HtmlParser {
     FontWeight fontWeight         = FontWeight.normal;
     FontStyle fontStyle           = FontStyle.normal;
     TextDecoration textDecoration = TextDecoration.none;
-    print(tag);
+
     switch (tag) {
       case 'h1':
         fontSize = 24.0;
@@ -365,7 +348,6 @@ class HtmlParser {
     return textStyle;
   }
 
-  // =================================================================================================================
 
   void _appendTag(String tag, Map attrs) {
     this._tag = {
@@ -374,7 +356,6 @@ class HtmlParser {
     };
   }
 
-  // =================================================================================================================
 
   void _appendNode(String text) {
     if (this._tag == null) {
@@ -395,7 +376,6 @@ class HtmlParser {
     this._tag = null;
   }
 
-  // =================================================================================================================
 
   String _getStackLastItem() {
     if (this._stack.length <= 0) {
