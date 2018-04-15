@@ -10,9 +10,9 @@ class HtmlTextView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HtmlParser htmlPraser = new HtmlParser();
+    HtmlParser htmlParser = new HtmlParser();
 
-    List<Widget> nodes = htmlPraser.HParse(this.data);
+    List<Widget> nodes = htmlParser.HParse(this.data);
 
     return new Container(
         padding: const EdgeInsets.all(5.0),
