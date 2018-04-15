@@ -259,7 +259,7 @@ class HtmlParser {
     String param;
     String value;
 
-    double fontSize = 12.0;
+    double fontSize = 0.0;
     Color color                   = new Color(0xFF000000);
     FontWeight fontWeight         = FontWeight.normal;
     FontStyle fontStyle           = FontStyle.normal;
@@ -337,13 +337,24 @@ class HtmlParser {
       }
     }
 
-    TextStyle textStyle = new TextStyle(
-        color:      color,
-        fontWeight: fontWeight,
-        fontStyle:  fontStyle,
-        decoration: textDecoration,
-      fontSize: fontSize
-    );
+    TextStyle textStyle;
+
+    if(fontSize != 0.0) {
+      textStyle = new TextStyle(
+          color: color,
+          fontWeight: fontWeight,
+          fontStyle: fontStyle,
+          decoration: textDecoration,
+          fontSize: fontSize
+      );
+    } else {
+      textStyle = new TextStyle(
+          color: color,
+          fontWeight: fontWeight,
+          fontStyle: fontStyle,
+          decoration: textDecoration,
+      );
+    }
 
     return textStyle;
   }
