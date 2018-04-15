@@ -11,14 +11,6 @@ class HtmlParser {
 
   HtmlParser();
 
-  Future<String> getHttpData(url) async {
-    http.Response response = await http.get(
-      Uri.encodeFull(url),
-    );
-
-    return response.body;
-  }
-
   List<Widget> HParse(String html) {
 
     List<Widget> widgetList = new List();
@@ -61,21 +53,6 @@ class HtmlParser {
     });
 
     return widgetList;
-  }
-
-  Future<List<Widget>> HNParse(String url) async {
-
-    String html;
-
-    http.Response response = await http.get(
-      Uri.encodeFull(url),
-    );
-
-    html = response.body;
-
-    return HParse(html);
-
-
   }
 
 }
