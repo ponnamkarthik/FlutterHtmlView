@@ -13,6 +13,10 @@ flutter_html_textview: ^0.1.0
 String html = '<body>Hello world! <a href="www.html5rocks.com">HTML5 rocks!';
 
 
-new HtmlTextView(data: html)
+new HtmlTextView(data: html);
 ```
+
+# Thanks to
+
+[@Katran](https://github.com/Katarn)
 
