@@ -267,22 +267,22 @@ class HtmlParser {
 
     switch (tag) {
       case 'h1':
-        fontSize = 24.0;
+        fontSize = 32.0;
         break;
       case 'h2':
-        fontSize = 18.0;
+        fontSize = 24.0;
         break;
       case 'h3':
-        fontSize = 13.55;
+        fontSize = 20.8;
         break;
       case 'h4':
-        fontSize = 12.0;
+        fontSize = 16.0;
         break;
       case 'h5':
-        fontSize = 10.0;
+        fontSize = 12.8;
         break;
       case 'h6':
-        fontSize = 7.55;
+        fontSize = 11.2;
         break;
       case 'a':
         color = new Color(int.parse('0xFF1965B5'));
