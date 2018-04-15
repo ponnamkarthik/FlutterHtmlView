@@ -7,7 +7,7 @@ Flutter Plugin to render html as a Widget
 ```yaml
 
 dependencies:
-  flutter_html_textview: "^0.2.2"
+  flutter_html_textview: "^0.2.3"
   
 ```
 
