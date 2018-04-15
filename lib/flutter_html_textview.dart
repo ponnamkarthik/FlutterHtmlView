@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_html_textview/html_parser.dart';
-import 'package:http/http.dart' as http;
 
 class HtmlTextView extends StatelessWidget {
   final String data;

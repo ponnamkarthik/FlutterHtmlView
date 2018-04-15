@@ -1,9 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
-import 'package:http/http.dart' as http;
 import 'package:flutter_html_textview/flutter_html_text.dart';
 
 
