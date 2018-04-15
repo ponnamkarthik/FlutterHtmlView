@@ -1,6 +1,6 @@
 name: flutter_html_textview
 description: Flutter Plugin to render html in textview
-version: 0.1.2
+version: 0.1.3
 author: Karthik Ponnam <ponnamkarthik3@gmail.com>
 homepage: https://github.com/PonnamKarthik/FlutterHtmlTextView
 
