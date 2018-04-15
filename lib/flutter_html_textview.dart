@@ -17,6 +17,7 @@ class HtmlTextView extends StatelessWidget {
     return new Container(
         padding: const EdgeInsets.all(5.0),
         child:  new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: nodes,
         )
 
