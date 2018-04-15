@@ -36,7 +36,8 @@ class _MyAppState extends State<MyApp> {
         ),
         body: new SingleChildScrollView(
           child: new Center(
-            child: new HtmlTextView(data: lorem,),
+//            child: new HtmlTextView(data: lorem,),
+            child: new HtmlNetworkTextView(url: "https://android-developers.googleblog.com/2018/04/dns-over-tls-support-in-android-p.html",),
           ),
         ),
       ),

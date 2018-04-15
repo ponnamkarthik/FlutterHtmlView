@@ -9,6 +9,7 @@ dependencies:
     sdk: flutter
 
   html: "^0.13.3"
+  http: "^0.11.3+16"
 
 
 environment:
