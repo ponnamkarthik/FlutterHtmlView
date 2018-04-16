@@ -285,6 +285,7 @@ class HtmlParser {
         fontSize = 11.2;
         break;
       case 'a':
+        textDecoration = TextDecoration.underline;
         color = new Color(int.parse('0xFF1965B5'));
         break;
 

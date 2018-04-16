@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:flutter_html_textview/flutter_html_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 class HtmlParser {
@@ -36,8 +37,8 @@ class HtmlParser {
         var imgElements = e.getElementsByTagName("img");
         if(imgElements.length > 0) {
           widgetList.add(
-              new Image.network(
-                imgElements[0].attributes['src'],
+              new CachedNetworkImage(
+                imageUrl: imgElements[0].attributes['src'],
                 fit: BoxFit.cover,
               )
           );
