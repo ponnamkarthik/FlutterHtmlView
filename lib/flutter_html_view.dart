@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html_view/html_parser.dart';
 
-class HtmlTextView extends StatelessWidget {
+class HtmlView extends StatelessWidget {
   final String data;
 
-  HtmlTextView({
+  HtmlView({
     this.data
   });
 

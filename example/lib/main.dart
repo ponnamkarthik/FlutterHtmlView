@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html_view/flutter_html_text.dart';
+import 'package:flutter_html_view/flutter_html_view.dart';
 
 void main() => runApp(new MyApp());
 
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: new SingleChildScrollView(
           child: new Center(
-            child: new HtmlTextView(data: lorem,),
+            child: new HtmlView(data: lorem,),
           ),
         ),
       ),
