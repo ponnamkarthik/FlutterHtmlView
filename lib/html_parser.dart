@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
-import 'package:flutter_html_textview/flutter_html_text.dart';
+import 'package:flutter_html_view/flutter_html_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 

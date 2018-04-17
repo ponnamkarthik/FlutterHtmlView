@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html_textview/html_parser.dart';
+import 'package:flutter_html_view/html_parser.dart';
 
 class HtmlTextView extends StatelessWidget {
   final String data;

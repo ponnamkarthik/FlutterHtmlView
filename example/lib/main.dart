@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html_textview/flutter_html_view.dart';
+import 'package:flutter_html_view/flutter_html_text.dart';
 
 void main() => runApp(new MyApp());
 
