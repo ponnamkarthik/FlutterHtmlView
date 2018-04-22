@@ -2,6 +2,8 @@
 
 Flutter Plugin to render html as a Widget
 
+* Links are clickable now
+
 ## How to Use
 
 ```yaml
