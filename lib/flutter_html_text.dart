@@ -1,21 +1,62 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as cTab;
+import 'package:url_launcher/url_launcher.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
+
+  BuildContext ctx;
 
 
   HtmlText({
     this.data
   });
 
+  void _launchURL(String url) async {
+    try {
+      await cTab.launch(
+        url,
+        option: new cTab.CustomTabsOption(
+          toolbarColor: Theme.of(ctx).primaryColor,
+          enableDefaultShare: true,
+          enableUrlBarHiding: true,
+          showPageTitle: true,
+        ),
+      );
+    } catch (e) {
+      // An exception is thrown if browser app is not installed on Android device.
+      debugPrint(e.toString());
+    }
+  }
+
+  void _launchOtherURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  TapGestureRecognizer recognizer (String url) {
+    return new TapGestureRecognizer()..onTap = (){
+      if(url.startsWith("http:") || url.startsWith("https:")) {
+        _launchURL(url);
+      } else {
+        _launchOtherURL(url);
+      }
+    };
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    ctx = context;
     HtmlParser parser = new HtmlParser();
     List nodes        = parser.parse(this.data);
     TextSpan span     = this._stackToTextSpan(nodes, context);
     RichText contents = new RichText(
-        text: span,
+      text: span,
       softWrap: true,
     );
 
@@ -42,7 +83,12 @@ class HtmlText extends StatelessWidget {
 
 
   TextSpan _textSpan(Map node) {
-    TextSpan span = new TextSpan(text: node['text'], style: node['style']);
+    TextSpan span;
+    if(node['tag'] == 'a') {
+      span = new TextSpan(text: node['text'], style: node['style'], recognizer: recognizer(node['href']) );
+    } else {
+      span = new TextSpan(text: node['text'], style: node['style'], );
+    }
 
     return span;
   }
