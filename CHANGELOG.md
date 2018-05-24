@@ -1,3 +1,7 @@
+## [0.5.1]
+
+* Bug Fixes
+
 ## [0.5.0]
 
 * Video tag is not supported

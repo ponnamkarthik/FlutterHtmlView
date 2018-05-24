@@ -84,10 +84,13 @@ class HtmlText extends StatelessWidget {
 
   TextSpan _textSpan(Map node) {
     TextSpan span;
+    String s = node['text'];
+    s = s.replaceAll('\u00A0', ' ');
+    s = s.replaceAll('&nbsp;', ' ');
     if(node['tag'] == 'a') {
-      span = new TextSpan(text: node['text'], style: node['style'], recognizer: recognizer(node['href']) );
+      span = new TextSpan(text: s, style: node['style'], recognizer: recognizer(node['href']) );
     } else {
-      span = new TextSpan(text: node['text'], style: node['style'], );
+      span = new TextSpan(text: s, style: node['style'], );
     }
 
     return span;
