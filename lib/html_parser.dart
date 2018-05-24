@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html_view/flutter_html_video.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:flutter_html_view/flutter_html_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:video_player/video_player.dart';
 
 class HtmlParser {
 
@@ -12,7 +13,7 @@ class HtmlParser {
   List<Widget> HParse(String html) {
 
     List<Widget> widgetList = new List();
-    
+
     dom.Document document = parse(html);
 
     dom.Element docBody = document.body;
@@ -43,7 +44,16 @@ class HtmlParser {
               )
           );
         }
-
+      } else if(e.outerHtml.contains("<video")) {
+        var videoElements = e.getElementsByTagName("video");
+        if(videoElements.length > 0) {
+          widgetList.add(
+            new NetworkPlayerLifeCycle(videoElements[0].attributes['src'],
+                  (BuildContext context, VideoPlayerController controller) =>
+              new AspectRatioVideo(controller),
+            ),
+          );
+        }
       } else if(!e.outerHtml.contains("<img") || !e.hasContent()) {
         widgetList.add(new HtmlText(data: e.outerHtml));
       }

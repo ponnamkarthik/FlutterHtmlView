@@ -11,6 +11,7 @@ dependencies:
   flutter_custom_tabs: "^0.1.0"
   html: "^0.13.3"
   cached_network_image: "^0.4.0"
+  video_player: "^0.5.2"
 
 
 environment:
