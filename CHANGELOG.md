@@ -1,3 +1,7 @@
+## [0.5.0]
+
+* Video tag is not supported
+
 ## [0.4.0]
 
 * Links are clickable now

@@ -1,15 +1,19 @@
 # flutter_html_view
 
-Flutter Plugin to render html as a Widget
+Flutter Plugin to render html as a Widget,
 
+Flutter has no default support to render html so this package helps you to render your html to native widgets
+
+* Video tag support added
 * Links are clickable now
+
 
 ## How to Use
 
 ```yaml
 
 dependencies:
-  flutter_html_view: "^0.4.0"
+  flutter_html_view: "^0.5.0"
   
 ```
 
