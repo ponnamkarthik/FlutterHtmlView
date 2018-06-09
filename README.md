@@ -7,6 +7,19 @@ Flutter has no default support to render html so this package helps you to rende
 * Video tag support added
 * Links are clickable now
 
+## Supported Tags
+
+* p
+* em
+* b
+* img
+* video
+* h1, h2, h3, h4, h5, h6
+
+> **Note**
+> * This plugin converts some of the html tags to flutter widgets
+> * This plugin does't support rendering full html code (there is no built in support for web rendering in flutter)
+
 
 ## How to Use
 
