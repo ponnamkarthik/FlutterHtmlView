@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_html_view/flutter_html_video.dart';
 import 'package:html/dom.dart' as dom;
@@ -9,6 +10,45 @@ import 'package:video_player/video_player.dart';
 class HtmlParser {
 
   HtmlParser();
+
+
+  Widget _parseChildren(e, widgetList) {
+    print(e);
+    if(e.localName == "img" && e.attributes.containsKey('src')) {
+      var src = e.attributes['src'];
+
+      if(src.startsWith("http") || src.startsWith("https")) {
+        widgetList.add(
+            new CachedNetworkImage(
+              imageUrl: src,
+              fit: BoxFit.cover,
+            )
+        );
+      } else if(src.startsWith('data:image')) {
+        var exp = new RegExp(r'data:.*;base64,');
+        var base64Str = src.replaceAll(exp, '');
+        var bytes = base64.decode(base64Str);
+
+        widgetList.add(
+          new Image.memory(bytes, fit: BoxFit.cover)
+        );
+      }
+    } else if(e.localName == "video" && e.attributes.containsKey('src')) {
+      var src = e.attributes['src'];
+      var videoElements = e.getElementsByTagName("video");
+      widgetList.add(
+          new NetworkPlayerLifeCycle(src,
+                (BuildContext context, VideoPlayerController controller) =>
+            new AspectRatioVideo(controller),
+          ),
+        );
+    } else if(!e.outerHtml.contains("<img") || !e.outerHtml.contains("<video")  || !e.hasContent()) {
+      print(e.outerHtml);
+      widgetList.add(new HtmlText(data: e.outerHtml));
+    }
+
+    if(e.children.length > 0) e.children.forEach((e) => _parseChildren(e, widgetList));
+  }
 
   List<Widget> HParse(String html) {
 
@@ -32,33 +72,7 @@ class HtmlParser {
     }
 
     List<dom.Element> docBodyChildren = docBody.children;
-
-    docBodyChildren.forEach((e) {
-      if(e.outerHtml.contains("<img")) {
-        var imgElements = e.getElementsByTagName("img");
-        if(imgElements.length > 0) {
-          widgetList.add(
-              new CachedNetworkImage(
-                imageUrl: imgElements[0].attributes['src'],
-                fit: BoxFit.cover,
-              )
-          );
-        }
-      } else if(e.outerHtml.contains("<video")) {
-        var videoElements = e.getElementsByTagName("video");
-        if(videoElements.length > 0) {
-          widgetList.add(
-            new NetworkPlayerLifeCycle(videoElements[0].attributes['src'],
-                  (BuildContext context, VideoPlayerController controller) =>
-              new AspectRatioVideo(controller),
-            ),
-          );
-        }
-      } else if(!e.outerHtml.contains("<img") || !e.hasContent()) {
-        widgetList.add(new HtmlText(data: e.outerHtml));
-      }
-
-    });
+    if(docBodyChildren.length > 0) docBodyChildren.forEach((e) => _parseChildren(e, widgetList));
 
     return widgetList;
   }
