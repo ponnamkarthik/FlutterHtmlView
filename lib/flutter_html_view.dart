@@ -4,9 +4,7 @@ import 'package:flutter_html_view/html_parser.dart';
 class HtmlView extends StatelessWidget {
   final String data;
 
-  HtmlView({
-    this.data
-  });
+  HtmlView({this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +13,10 @@ class HtmlView extends StatelessWidget {
     List<Widget> nodes = htmlParser.HParse(this.data);
 
     return new Container(
-        padding: const EdgeInsets.all(5.0),
-        child:  new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: nodes,
-        )
-
+      padding: const EdgeInsets.all(5.0),
+      child: new ListView(
+        children: nodes,
+      ),
     );
   }
 }
-
-
-
