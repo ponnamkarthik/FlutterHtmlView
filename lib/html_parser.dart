@@ -10,7 +10,7 @@ import 'package:video_player/video_player.dart';
 class HtmlParser {
   HtmlParser();
 
-  Widget _parseChildren(e, widgetList) {
+  _parseChildren(e, widgetList) {
     print(e);
     if (e.localName == "img" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
@@ -29,7 +29,7 @@ class HtmlParser {
       }
     } else if (e.localName == "video" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
-      var videoElements = e.getElementsByTagName("video");
+      // var videoElements = e.getElementsByTagName("video");
       widgetList.add(
         new NetworkPlayerLifeCycle(
           src,
