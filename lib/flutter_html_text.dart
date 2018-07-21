@@ -236,7 +236,7 @@ class HtmlParser {
 
   HtmlParser() {
     this._startTag = new RegExp(
-        r'^<([-A-Za-z0-9_]+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")' +
+        r'^<([-A-Za-z0-9_]+)((?:\s+[-\w]+(?:\s*=\s*(?:(?:"[^"]*")' +
             "|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>");
     this._endTag = new RegExp("^<\/([-A-Za-z0-9_]+)[^>]*>");
     this._attr = new RegExp(
