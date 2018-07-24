@@ -1,3 +1,7 @@
+## [0.5.3]
+
+* Bug fixes
+
 ## [0.5.2]
 
 * support for data:image parsing for inline base64 images added
