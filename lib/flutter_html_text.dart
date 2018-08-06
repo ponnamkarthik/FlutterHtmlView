@@ -49,7 +49,7 @@ class HtmlText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ctx = context;
-    HtmlParser parser = new HtmlParser();
+    HtmlParser parser = new HtmlParser(context);
     List nodes = parser.parse(this.data);
     TextSpan span = this._stackToTextSpan(nodes, context);
     RichText contents = new RichText(
@@ -102,6 +102,8 @@ class HtmlParser {
   RegExp _attr;
   RegExp _style;
   RegExp _color;
+
+  final BuildContext context;
 
   final List _emptyTags = const [
     'area',
@@ -234,7 +236,7 @@ class HtmlParser {
 
   Map<String, dynamic> _tag;
 
-  HtmlParser() {
+  HtmlParser(this.context) {
     this._startTag = new RegExp(
         r'^<([-A-Za-z0-9_]+)((?:\s+[-\w]+(?:\s*=\s*(?:(?:"[^"]*")' +
             "|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>");
@@ -416,11 +418,13 @@ class HtmlParser {
     String param;
     String value;
 
-    double fontSize = 0.0;
-    Color color = new Color(0xFF000000);
-    FontWeight fontWeight = FontWeight.normal;
-    FontStyle fontStyle = FontStyle.normal;
-    TextDecoration textDecoration = TextDecoration.none;
+    TextStyle defaultTextStyle = DefaultTextStyle.of(context).style;
+
+    double fontSize = defaultTextStyle.fontSize;
+    Color color = defaultTextStyle.color;
+    FontWeight fontWeight = defaultTextStyle.fontWeight;
+    FontStyle fontStyle = defaultTextStyle.fontStyle;
+    TextDecoration textDecoration = defaultTextStyle.decoration;
 
     switch (tag) {
       case 'h1':
