@@ -51,6 +51,7 @@ class HtmlText extends StatelessWidget {
     ctx = context;
     HtmlParser parser = new HtmlParser();
     List nodes = parser.parse(this.data);
+
     TextSpan span = this._stackToTextSpan(nodes, context);
     RichText contents = new RichText(
       text: span,
@@ -79,8 +80,13 @@ class HtmlText extends StatelessWidget {
   TextSpan _textSpan(Map node) {
     TextSpan span;
     String s = node['text'];
+
     s = s.replaceAll('\u00A0', ' ');
     s = s.replaceAll('&nbsp;', ' ');
+    s = s.replaceAll('&amp;', '&');
+    s = s.replaceAll('&lt;', '<');
+    s = s.replaceAll('&gt;', '>');
+
     if (node['tag'] == 'a') {
       span = new TextSpan(
           text: s, style: node['style'], recognizer: recognizer(node['href']));
