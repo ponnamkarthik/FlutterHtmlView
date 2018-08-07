@@ -40,9 +40,7 @@ class HtmlParser {
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
       widgetList.add(new HtmlText(data: e.outerHtml));
-    }
-
-    if (e.children.length > 0)
+    } else if (e.children.length > 0)
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }
 
