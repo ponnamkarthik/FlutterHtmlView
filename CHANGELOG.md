@@ -1,3 +1,9 @@
+## [0.5.4]
+
+* video_player dependencies to ^0.6.4
+* [Pullrequest #28](https://github.com/PonnamKarthik/FlutterHtmlView/pull/28) Merged
+* [Pullrequest #29](https://github.com/PonnamKarthik/FlutterHtmlView/pull/29) Merged
+
 ## [0.5.3]
 
 * Bug fixes
