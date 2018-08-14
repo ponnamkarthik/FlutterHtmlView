@@ -11,7 +11,6 @@ class HtmlParser {
   HtmlParser();
 
   _parseChildren(e, widgetList) {
-    print(e);
     if (e.localName == "img" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
 
@@ -40,11 +39,8 @@ class HtmlParser {
     } else if (!e.outerHtml.contains("<img") ||
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
-      print(e.outerHtml);
       widgetList.add(new HtmlText(data: e.outerHtml));
-    }
-
-    if (e.children.length > 0)
+    } else if (e.children.length > 0)
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }
 
