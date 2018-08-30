@@ -23,14 +23,15 @@ class _MyAppState extends State<MyApp> {
 <h4>This is heading 4</h4>
 <h5>This is heading 5</h5>
 <h6>This is heading 6</h6>
-<p>
-    <img alt="Test Image" src="https://i.ytimg.com/vi/RHLknisJ-Sg/maxresdefault.jpg">
-</p>
-<p>
-    <video src="https://flutter.github.io/assets-for-api-docs/videos/bee.mp4"></video>
-</p>
+<img alt="Test Image" src="https://source.unsplash.com/random/300x200">
+<video src="https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"></video>
 <a data-id="1" href="https://google.com">Go Google</a>
 <a href="mailto:ponnamkarthik3@gmail.com">Mail to me</a>
+
+<video id="video1" >
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+ </video>
+  
 ''';
 
     return new MaterialApp(

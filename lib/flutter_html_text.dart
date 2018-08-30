@@ -31,14 +31,14 @@ class HtmlText extends StatelessWidget {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Could not launch $url';
+      print('Could not launch $url');
     }
   }
 
   TapGestureRecognizer recognizer(String url) {
     return new TapGestureRecognizer()
       ..onTap = () {
-        if (url.startsWith("http:") || url.startsWith("https:")) {
+        if (url.startsWith("http://") || url.startsWith("https://")) {
           _launchURL(url);
         } else {
           _launchOtherURL(url);

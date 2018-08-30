@@ -1,3 +1,9 @@
+## [0.5.5]
+
+* Video -> Source tag Now Supported
+* flutter_custom_tabs Fixed
+* Updated latest dependencies
+ 
 ## [0.5.4]
 
 * video_player dependencies to ^0.6.4

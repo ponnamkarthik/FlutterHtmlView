@@ -26,19 +26,44 @@ Flutter has no default support to render html so this package helps you to rende
 ```yaml
 
 dependencies:
-  flutter_html_view: "^0.5.4"
+  flutter_html_view: "^0.5.5"
   
 ```
 
 ```dart
 
-import 'package:flutter_html_textview/flutter_html_textview.dart';
+import 'package:flutter_html_view/flutter_html_view.dart';
 
 String html = '<body>Hello world! <a href="www.html5rocks.com">HTML5 rocks!';
 
-new HtmlTextView(data: html);
+new HtmlText(data: html);
 
 ```
+
+### iOS
+
+Warning: The video player is not functional on iOS simulators. An iOS device must be used during development/testing.
+
+Add the following entry to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSAllowsArbitraryLoads</key>
+  <true/>
+</dict>
+```
+
+This entry allows your app to access video files by URL.
+
+### Android
+
+Ensure the following permission is present in your Android Manifest file, located in `<project root>/android/app/src/main/AndroidManifest.xml:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
 
 # Thanks to
 
