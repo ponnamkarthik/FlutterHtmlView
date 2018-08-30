@@ -10,7 +10,9 @@ dependencies:
 
   flutter_custom_tabs: "^0.3.0"
   html: "^0.13.3"
-  cached_network_image: "^0.4.1"
+  cached_network_image:
+    git:
+      url: https://github.com/jogboms/flutter_cached_network_image.git
   video_player: "^0.6.4"
 
 
