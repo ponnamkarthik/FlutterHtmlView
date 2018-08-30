@@ -1,3 +1,7 @@
+## [0.5.7]
+
+* cache image network dependency crash fixed
+
 ## [0.5.5]
 
 * Video -> Source tag Now Supported
