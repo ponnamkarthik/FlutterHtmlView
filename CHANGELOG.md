@@ -1,3 +1,8 @@
+## [0.5.8]
+
+* cache image network dependency import fixed
+* [Issue #44](https://github.com/PonnamKarthik/FlutterHtmlView/issues/44) Removed print
+
 ## [0.5.7]
 
 * cache image network dependency crash fixed

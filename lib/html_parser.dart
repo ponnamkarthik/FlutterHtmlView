@@ -11,7 +11,7 @@ class HtmlParser {
   HtmlParser();
 
   _parseChildren( dom.Element e, widgetList) {
-    print(e.localName);
+//    print(e.localName);
     if (e.localName == "img" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
 
