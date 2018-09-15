@@ -10,7 +10,7 @@ class HtmlView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HtmlParser htmlParser = new HtmlParser(this.baseURL);
+    HtmlParser htmlParser = new HtmlParser(baseUrl: this.baseURL);
     List<Widget> nodes = htmlParser.parseHTML(this.data);
     return new Container(
         padding: padding,
