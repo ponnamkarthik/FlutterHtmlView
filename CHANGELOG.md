@@ -1,3 +1,7 @@
+## [0.5.9]
+
+* add base URL to class constructor to support some Html created by online editor.
+
 ## [0.5.8]
 
 * cache image network dependency import fixed
