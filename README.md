@@ -7,6 +7,8 @@ Flutter has no default support to render html so this package helps you to rende
 * Video tag support added
 * Links are clickable now
 
+> [Refer this for full support of webview for android](https://github.com/PonnamKarthik/FlutterWebView)
+
 ## Supported Tags
 
 * p
