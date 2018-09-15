@@ -10,7 +10,7 @@ class HtmlView extends StatelessWidget {
   Widget build(BuildContext context) {
     HtmlParser htmlParser = new HtmlParser();
 
-    List<Widget> nodes = htmlParser.HParse(this.data);
+    List<Widget> nodes = htmlParser.parseHTML(this.data);
 
     return new Container(
         padding: const EdgeInsets.all(5.0),

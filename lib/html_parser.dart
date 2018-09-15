@@ -67,7 +67,7 @@ class HtmlParser {
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }
 
-  List<Widget> HParse(String html) {
+  List<Widget> parseHTML(String html) {
     List<Widget> widgetList = new List();
 
     dom.Document document = parse(html);
