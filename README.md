@@ -38,7 +38,7 @@ import 'package:flutter_html_view/flutter_html_view.dart';
 
 String html = '<body>Hello world! <a href="www.html5rocks.com">HTML5 rocks!';
 
-new HtmlText(data: html);
+new HtmlView(data: html);
 
 ```
 
