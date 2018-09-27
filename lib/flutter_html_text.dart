@@ -5,10 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
+  final Widget style;
 
   BuildContext ctx;
 
-  HtmlText({this.data});
+  HtmlText({this.data, this.style});
 
   void _launchURL(String url) async {
     try {
