@@ -10,8 +10,9 @@ import 'package:video_player/video_player.dart';
 
 class HtmlParser {
   String baseUrl;
+  Function onLaunchFail;
 
-  HtmlParser({this.baseUrl});
+  HtmlParser({this.baseUrl, this.onLaunchFail});
 
   _parseChildren(dom.Element e, widgetList) {
 //    print(e.localName);
@@ -68,7 +69,7 @@ class HtmlParser {
     } else if (!e.outerHtml.contains("<img") ||
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
-      widgetList.add(new HtmlText(data: e.outerHtml));
+      widgetList.add(new HtmlText(data: e.outerHtml, onLaunchFail: this.onLaunchFail));
     } else if (e.children.length > 0)
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }

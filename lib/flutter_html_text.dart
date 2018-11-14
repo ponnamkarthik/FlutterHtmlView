@@ -6,10 +6,11 @@ import 'package:url_launcher/url_launcher.dart';
 class HtmlText extends StatelessWidget {
   final String data;
   final Widget style;
+  final Function onLaunchFail;
 
   BuildContext ctx;
 
-  HtmlText({this.data, this.style});
+  HtmlText({this.data, this.style, this.onLaunchFail});
 
   void _launchURL(String url) async {
     try {
@@ -33,6 +34,10 @@ class HtmlText extends StatelessWidget {
       await launch(url);
     } else {
       print('Could not launch $url');
+
+      if (this.onLaunchFail != null) {
+        this.onLaunchFail(url);
+      }
     }
   }
 
