@@ -1,3 +1,8 @@
+## [0.5.10]
+
+* Version update of dependencies [Pullrequest #56](https://github.com/PonnamKarthik/FlutterHtmlView/pull/56)
+* added onLaunchFail paramete [Pullrequest #58](https://github.com/PonnamKarthik/FlutterHtmlView/pull/58)
+
 ## [0.5.9]
 
 * add base URL to class constructor to support some Html created by online editor.
