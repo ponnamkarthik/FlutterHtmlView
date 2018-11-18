@@ -5,10 +5,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
+  final Widget style;
+  final Function onLaunchFail;
 
   BuildContext ctx;
 
-  HtmlText({this.data});
+  HtmlText({this.data, this.style, this.onLaunchFail});
 
   void _launchURL(String url) async {
     try {
@@ -31,14 +33,18 @@ class HtmlText extends StatelessWidget {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Could not launch $url';
+      print('Could not launch $url');
+
+      if (this.onLaunchFail != null) {
+        this.onLaunchFail(url);
+      }
     }
   }
 
   TapGestureRecognizer recognizer(String url) {
     return new TapGestureRecognizer()
       ..onTap = () {
-        if (url.startsWith("http:") || url.startsWith("https:")) {
+        if (url.startsWith("http://") || url.startsWith("https://")) {
           _launchURL(url);
         } else {
           _launchOtherURL(url);
@@ -51,6 +57,7 @@ class HtmlText extends StatelessWidget {
     ctx = context;
     HtmlParser parser = new HtmlParser(context);
     List nodes = parser.parse(this.data);
+
     TextSpan span = this._stackToTextSpan(nodes, context);
     RichText contents = new RichText(
       text: span,
@@ -79,8 +86,13 @@ class HtmlText extends StatelessWidget {
   TextSpan _textSpan(Map node) {
     TextSpan span;
     String s = node['text'];
+
     s = s.replaceAll('\u00A0', ' ');
     s = s.replaceAll('&nbsp;', ' ');
+    s = s.replaceAll('&amp;', '&');
+    s = s.replaceAll('&lt;', '<');
+    s = s.replaceAll('&gt;', '>');
+
     if (node['tag'] == 'a') {
       span = new TextSpan(
           text: s, style: node['style'], recognizer: recognizer(node['href']));
