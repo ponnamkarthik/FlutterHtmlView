@@ -15,7 +15,6 @@ class HtmlParser {
   HtmlParser({this.baseUrl, this.onLaunchFail});
 
   _parseChildren(dom.Element e, widgetList) {
-//    print(e.localName);
     if (e.localName == "img" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
 
@@ -70,8 +69,8 @@ class HtmlParser {
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
       widgetList.add(new HtmlText(data: e.outerHtml, onLaunchFail: this.onLaunchFail));
-    } else if (e.children.length > 0)
-      e.children.forEach((e) => _parseChildren(e, widgetList));
+    }
+    e.children.forEach((e) => _parseChildren(e, widgetList));
   }
 
   List<Widget> parseHTML(String html) {
