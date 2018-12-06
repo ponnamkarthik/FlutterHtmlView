@@ -3,11 +3,12 @@ import 'package:flutter_html_view/html_parser.dart';
 
 class HtmlView extends StatelessWidget {
   final String data;
+  final TextOverflow overflow;
   final EdgeInsetsGeometry padding;
   final String baseURL;
   final Function onLaunchFail;
 
-  HtmlView({this.data, this.padding = const EdgeInsets.all(5.0), this.baseURL, this.onLaunchFail});
+  HtmlView({this.data, this.padding = const EdgeInsets.all(5.0), this.baseURL, this.onLaunchFail, this.overflow});
 
   @override
   Widget build(BuildContext context) {
