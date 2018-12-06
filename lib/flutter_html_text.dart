@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
+  final TextOverflow overflow;
   final Widget style;
   final Function onLaunchFail;
 
@@ -62,6 +63,7 @@ class HtmlText extends StatelessWidget {
     RichText contents = new RichText(
       text: span,
       softWrap: true,
+      overflow: this.overflow,
     );
 
     return new Container(
