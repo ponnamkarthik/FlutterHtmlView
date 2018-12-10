@@ -520,6 +520,11 @@ class HtmlParser {
 
             break;
 
+          case 'font-size':
+             fontSize = double.parse(value);
+             
+            break;
+
           case 'text-decoration':
             textDecoration = (value == 'underline')
                 ? TextDecoration.underline
