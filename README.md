@@ -2,12 +2,13 @@
 
 Flutter Plugin to render html as a Widget,
 
+> [Refer this for full support of inline webview for android and iOS](https://github.com/PonnamKarthik/FlutterWebView)
+
+
 Flutter has no default support to render html so this package helps you to render your html to native widgets
 
 * Video tag support added
 * Links are clickable now
-
-> [Refer this for full support of webview for android](https://github.com/PonnamKarthik/FlutterWebView)
 
 ## Supported Tags
 
@@ -28,7 +29,7 @@ Flutter has no default support to render html so this package helps you to rende
 ```yaml
 
 dependencies:
-  flutter_html_view: "^0.5.10"
+  flutter_html_view: ^0.5.11
   
 ```
 
