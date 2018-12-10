@@ -9,13 +9,14 @@ import 'package:html/parser.dart' show parse;
 import 'package:video_player/video_player.dart';
 
 class HtmlParser {
+  TextOverflow overflow;
+  int maxLines;
   String baseUrl;
   Function onLaunchFail;
 
-  HtmlParser({this.baseUrl, this.onLaunchFail});
+  HtmlParser({this.baseUrl, this.onLaunchFail, this.overflow, this.maxLines});
 
   _parseChildren(dom.Element e, widgetList) {
-//    print(e.localName);
     if (e.localName == "img" && e.attributes.containsKey('src')) {
       var src = e.attributes['src'];
 
@@ -69,7 +70,7 @@ class HtmlParser {
     } else if (!e.outerHtml.contains("<img") ||
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
-      widgetList.add(new HtmlText(data: e.outerHtml, onLaunchFail: this.onLaunchFail));
+      widgetList.add(new HtmlText(data: e.outerHtml, onLaunchFail: this.onLaunchFail, overflow: this.overflow, maxLines: this.maxLines,));
     } else if (e.children.length > 0)
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }
