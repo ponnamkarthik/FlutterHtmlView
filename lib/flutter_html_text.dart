@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class HtmlText extends StatelessWidget {
   final String data;
+  final TextOverflow overflow;
   final Widget style;
   final TextOverflow overflow;
   final int maxLines;
@@ -61,6 +62,7 @@ class HtmlText extends StatelessWidget {
     List nodes = parser.parse(this.data);
 
     TextSpan span = this._stackToTextSpan(nodes, context);
+
 
     RichText contents;
     if (overflow != null && maxLines != null) {
