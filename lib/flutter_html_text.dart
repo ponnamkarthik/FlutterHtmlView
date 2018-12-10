@@ -7,7 +7,6 @@ class HtmlText extends StatelessWidget {
   final String data;
   final TextOverflow overflow;
   final Widget style;
-  final TextOverflow overflow;
   final int maxLines;
   final Function onLaunchFail;
 
