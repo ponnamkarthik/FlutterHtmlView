@@ -8,29 +8,51 @@ import 'package:url_launcher/url_launcher.dart';
 class HtmlView extends StatelessWidget {
   final String data;
   final Function onLaunchFail;
+  final bool scrollable;
+  final EdgeInsets padding;
   Map<String, String> stylingOptions;
   BuildContext ctx;
 
-  HtmlView({this.data, this.stylingOptions, this.onLaunchFail});
+  /// If [scrollable] is set to false then you must handle scrolling outside of this widget.
+  /// This can be acheived by using a [SingleChildScrollView].
+  HtmlView({this.data, this.stylingOptions, this.onLaunchFail, this.scrollable = true, this.padding});
 
   @override
   Widget build(BuildContext context) {
     ctx = context;
-    return Markdown(
+    if (scrollable) {
+      return Markdown(
         data: _htmlMd(data, stylingOptions),
-      onTapLink: (url) {
+        onTapLink: (url) {
           if (url.startsWith("http://") || url.startsWith("https://")) {
             _launchURL(url);
           } else {
             _launchOtherURL(url);
           }
-      },
-    );
+        },
+        padding: padding,
+      );
+    }
+    else {
+      return Container(
+        padding: padding,
+        child: MarkdownBody( // Doesn't use a list view, hence no scrolling. 
+          data: _htmlMd(data, stylingOptions),
+          onTapLink: (url) {
+            if (url.startsWith("http://") || url.startsWith("https://")) {
+              _launchURL(url);
+            } else {
+              _launchOtherURL(url);
+            }
+          },
+        ),
+      );
+    }
   }
 
 
   String _htmlMd(String html, Map<String, String> stylingOptions) {
-    if(stylingOptions != null) {
+    if (stylingOptions != null) {
       return html2md.convert(html, styleOptions: stylingOptions);
     } else {
       return html2md.convert(html);
