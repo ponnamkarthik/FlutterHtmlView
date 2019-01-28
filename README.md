@@ -44,8 +44,9 @@ new HtmlView(
   baseURL: "", // optional, type String
   onLaunchFail: (url) { // optional, type Function
     print("launch $url failed");
-  }
-
+  },
+  scrollable: false, //false to use MarksownBody and true to use Marksown
+)
 ```
 
 ### iOS
