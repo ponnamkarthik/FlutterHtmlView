@@ -12,8 +12,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_custom_tabs:
-    git: git://github.com/ohze/flutter_custom_tabs.git
+  flutter_custom_tabs: ^0.6.0
 
   flutter_html_view:
     path: ../
