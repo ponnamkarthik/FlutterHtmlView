@@ -7,8 +7,7 @@ homepage: https://github.com/PonnamKarthik/FlutterHtmlView
 dependencies:
   flutter:
     sdk: flutter
-  flutter_custom_tabs:
-    git: git://github.com/ohze/flutter_custom_tabs.git
+  flutter_custom_tabs: ^0.6.0
   html: ^0.13.3+3
   video_player: 0.10.0+2
   cached_network_image: ^0.6.0+1
