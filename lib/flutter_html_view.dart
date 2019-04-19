@@ -12,10 +12,17 @@ class HtmlView extends StatelessWidget {
   final EdgeInsets padding;
   Map<String, String> stylingOptions;
   BuildContext ctx;
+  MarkdownStyleSheet styleSheet;
 
   /// If [scrollable] is set to false then you must handle scrolling outside of this widget.
   /// This can be acheived by using a [SingleChildScrollView].
-  HtmlView({this.data, this.stylingOptions, this.onLaunchFail, this.scrollable = true, this.padding});
+  HtmlView(
+      {this.data,
+      this.stylingOptions,
+      this.onLaunchFail,
+      this.scrollable = true,
+      this.padding,
+      this.styleSheet = null});
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +38,13 @@ class HtmlView extends StatelessWidget {
           }
         },
         padding: padding,
+        styleSheet: styleSheet,
       );
-    }
-    else {
+    } else {
       return Container(
         padding: padding,
-        child: MarkdownBody( // Doesn't use a list view, hence no scrolling. 
+        child: MarkdownBody(
+          // Doesn't use a list view, hence no scrolling.
           data: _htmlMd(data, stylingOptions),
           onTapLink: (url) {
             if (url.startsWith("http://") || url.startsWith("https://")) {
@@ -45,11 +53,11 @@ class HtmlView extends StatelessWidget {
               _launchOtherURL(url);
             }
           },
+          styleSheet: styleSheet,
         ),
       );
     }
   }
-
 
   String _htmlMd(String html, Map<String, String> stylingOptions) {
     if (stylingOptions != null) {
@@ -58,7 +66,6 @@ class HtmlView extends StatelessWidget {
       return html2md.convert(html);
     }
   }
-
 
   void _launchURL(String url) async {
     try {
@@ -89,5 +96,4 @@ class HtmlView extends StatelessWidget {
       }
     }
   }
-
 }
