@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html_view/flutter_html_view.dart';
 
+import 'package:flutter_markdown/flutter_markdown.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -49,6 +51,7 @@ class _MyAppState extends State<MyApp> {
           child: new HtmlView(
             data: html,
             stylingOptions: null,
+            styleSheet: MarkdownStyleSheet(),
           ),
         ),
       ),
