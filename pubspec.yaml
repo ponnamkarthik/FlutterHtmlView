@@ -10,7 +10,7 @@ dependencies:
   flutter_custom_tabs: ^0.6.0
   html: ^0.13.3+3
   video_player: 0.10.0+2
-  cached_network_image: ^0.7.0
+  cached_network_image: ^1.1.1
 
   flutter_markdown: ^0.2.0
   html2md: ^0.3.0
