@@ -2,7 +2,7 @@
 
 - updated Dependencies:
     -   cached_network_image: ^1.1.3
-    -   flutter_markdown: ^0.5.0
+    -   flutter_markdown: ^0.3.0
     -   html: ^0.14.0+3
 
 ## [0.5.12]
