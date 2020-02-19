@@ -2,8 +2,8 @@
 
 - updated Dependencies:
     -  html: ^0.14.0+3
-    -  video_player: 0.10.0+5
-    -  cached_network_image: ^1.1.3
+    -  video_player: 0.10.6
+    -  cached_network_image: ^2.0.0
     -  flutter_markdown: ^0.3.0
     -  html2md: ^0.5.0
 
