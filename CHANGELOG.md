@@ -1,3 +1,12 @@
+## [0.6.0]
+
+- updated Dependencies: [#99](https://github.com/PonnamKarthik/FlutterHtmlView/pull/99).
+    -  html: ^0.14.0+3
+    -  video_player: 0.10.7
+    -  cached_network_image: ^2.0.0
+    -  flutter_markdown: ^0.3.3
+    -  html2md: ^0.5.1
+
 ## [0.5.12]
 
 - add support to change style #93

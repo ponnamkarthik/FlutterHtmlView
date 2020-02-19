@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:html2md/html2md.dart' as html2md;
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as cTab;
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:html2md/html2md.dart' as html2md;
 import 'package:url_launcher/url_launcher.dart';
 
 class HtmlView extends StatelessWidget {
@@ -16,13 +15,14 @@ class HtmlView extends StatelessWidget {
 
   /// If [scrollable] is set to false then you must handle scrolling outside of this widget.
   /// This can be acheived by using a [SingleChildScrollView].
-  HtmlView(
-      {this.data,
-      this.stylingOptions,
-      this.onLaunchFail,
-      this.scrollable = true,
-      this.padding,
-      this.styleSheet = null});
+  HtmlView({
+    this.data,
+    this.stylingOptions,
+    this.onLaunchFail,
+    this.scrollable = true,
+    this.padding,
+    this.styleSheet,
+  });
 
   @override
   Widget build(BuildContext context) {

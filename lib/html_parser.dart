@@ -70,7 +70,12 @@ class HtmlParser {
     } else if (!e.outerHtml.contains("<img") ||
         !e.outerHtml.contains("<video") ||
         !e.hasContent()) {
-      widgetList.add(new HtmlText(data: e.outerHtml, onLaunchFail: this.onLaunchFail, overflow: this.overflow, maxLines: this.maxLines,));
+      widgetList.add(new HtmlText(
+        data: e.outerHtml,
+        onLaunchFail: this.onLaunchFail,
+        overflow: this.overflow,
+        maxLines: this.maxLines,
+      ));
     } else if (e.children.length > 0)
       e.children.forEach((e) => _parseChildren(e, widgetList));
   }
